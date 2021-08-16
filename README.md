@@ -1,5 +1,6 @@
 # FZP
-Fuzzy finder paster
+Clipboard paster with fzf used as an interface.
+Written in python 3.
 
 # Installation
 
