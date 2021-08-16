@@ -1,0 +1,40 @@
+#!/usr/bin/env python
+import os
+import pyperclip
+CHOICES = {
+    "html":
+    '''
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Title of the document</title>
+</head>
+
+<body>
+</body>
+
+</html>
+    ''',
+    "bgm onshape":{
+        "user":"1tmk87f@dispostable.com",
+        "pass":"1tmk87fA"
+    },
+    "bgm codepen":{
+        "user":"codpenio",
+        "pass":"codepen.io"
+    }
+}
+
+str_fzf = ""
+for k in CHOICES:
+    str_fzf +=k+"\n"
+r= os.popen("echo '"+str_fzf+"'|fzf").read()
+
+v = CHOICES[r.strip()]
+if isinstance(v, str):
+    pyperclip.copy(v)
+else:
+    pyperclip.copy(v["user"])
+    input("User copied !\nPress any key to copy the pass")
+    pyperclip.copy(v["pass"])
