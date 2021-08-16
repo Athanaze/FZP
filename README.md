@@ -1,0 +1,2 @@
+# FZP
+Fuzzy finder paster
